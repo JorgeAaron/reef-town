@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "163588705562",
+    "firebase_url": "https://reef-town-app.firebaseio.com",
+    "project_id": "reef-town-app",
+    "storage_bucket": "reef-town-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:163588705562:android:56c51d9e1e1e3f6efd30a3",
+        "android_client_info": {
+          "package_name": "com.crpublicidad.reef_town"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "163588705562-aegmvqll6v9efafhcqpuu5i8c945l6t0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvyPiO29XAwn9W5_H9i-2miyMSGBu2Te4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "163588705562-aegmvqll6v9efafhcqpuu5i8c945l6t0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
