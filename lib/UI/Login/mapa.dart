@@ -15,16 +15,22 @@ class _MapaState extends State<Mapa> {
 
   String buscarDireccion;
 
+  double latitud;
+
+  double longitud;
+
 
 
   @override
   Widget build(BuildContext context) {
-    return
-            GoogleMap(
+    return  GoogleMap(
              initialCameraPosition: CameraPosition(
-               target: LatLng(0, 0 ),
+               target: LatLng(27.9287186,-110.9236237),
                zoom: 12,
              )
             );
   }
+
+
+
 }

@@ -10,10 +10,6 @@ void main() => runApp(HomePage());
 
 class HomePage extends StatelessWidget {
   // This widget is the root of your application.
-Diversion()
-{
-  Observable(Stream.fromIterable())
-}
 
   
   @override

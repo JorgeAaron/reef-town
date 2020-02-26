@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:reef_town/UI/Login/mapa.dart';
+import 'location.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -56,8 +58,23 @@ class _LoginState extends State<Login> {
               MaterialButton(
                 child: Text("Localiza tu ubicacion con Google Maps"),
                 color: Colors.lightGreen,
-                onPressed: () {},
-              )
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Mapa()),
+                  );
+                },
+              ),
+              MaterialButton(
+              child: Text("Localización"),
+                  color: Colors.lightBlueAccent,
+                  onPressed: () {
+                  Navigator.push(
+                  context,
+                    MaterialPageRoute(builder: (context) => Location()),
+                  );
+                 }
+              ),
             ],
           )),
     );
