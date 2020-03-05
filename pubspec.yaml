@@ -29,6 +29,7 @@ dependencies:
   firebase_analytics: ^5.0.11
   rxdart: ^0.23.1
   geolocator: ^5.2.1
+  carousel_pro: ^1.0.0
 
 dev_dependencies:
   flutter_test:
@@ -46,6 +47,9 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+  assets:
+    - lib/assets/hamburguesas.jpg
+    - lib/assets/ajillo.png
   # To add assets to your application, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg

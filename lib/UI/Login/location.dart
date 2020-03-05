@@ -12,6 +12,7 @@ class _LocationState extends State<Location> {
   String   _currentAddress;
 
 
+
   final Geolocator geolocator = Geolocator()..forceAndroidLocationManager;
 
 
@@ -72,6 +73,7 @@ class _LocationState extends State<Location> {
         _currentAddress =
         "Colonia: ${place.subLocality}, Calle: ${place.thoroughfare}, Codigo "
             "postal: ${place.postalCode}";
+        
       });
     } catch (e){
       print(e);

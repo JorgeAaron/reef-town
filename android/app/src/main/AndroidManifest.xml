@@ -10,7 +10,7 @@
         android:label="reef_town"
         android:icon="@mipmap/ic_launcher">
 
-        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyAkOCgtdXQAcggESIcbLqLyPbW2_yZvVZw"/>
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="####"/>
 
         <activity
             android:name=".MainActivity"
