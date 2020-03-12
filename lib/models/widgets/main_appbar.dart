@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:reef_town/UI/Login/login.dart';
 
 
+
+
   Widget mainBar(context) {
     return AppBar(
       backgroundColor: Colors.red,
@@ -15,7 +17,7 @@ import 'package:reef_town/UI/Login/login.dart';
         MaterialButton(
           elevation: 2,
           onPressed: () {
-            Navigator.push(
+            Navigator.pushReplacement(
               context,
               MaterialPageRoute(builder: (context) => Login()),
             );

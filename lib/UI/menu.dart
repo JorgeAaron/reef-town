@@ -1,18 +1,20 @@
-import 'package:carousel_pro/carousel_pro.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:reef_town/UI/Login/login.dart';
+import 'package:reef_town/models/classes/producto.dart';
 import 'package:reef_town/models/widgets/carousel.dart';
 import 'package:reef_town/models/widgets/categorias.dart';
 import 'package:reef_town/models/widgets/lista.dart';
-import 'package:reef_town/models/widgets/main_appbar.dart';
 
-import 'Pages/carrito.dart';
+
 import 'Pages/favoritos.dart';
-import 'Pages/perfil.dart';
 
 
 class Menu extends StatefulWidget {
+
+  final String nombre;
+
+  Menu({this.nombre});
 
 
   @override
@@ -22,34 +24,46 @@ class Menu extends StatefulWidget {
 
 class _MenuState extends State<Menu> {
 
-  int _currentIndex = 0;
+  List<Producto> productos = [
+    Producto(nombre: 'Machaca', precio: 115,
+        urlFoto: 'https://reeftown.mx/wp-content/uploads/2018/11/Machaca-300x300.png',
+        favorito: false),
+    Producto(nombre: 'Wafles', precio: 80,
+        urlFoto: 'https://reeftown.mx/wp-content/uploads/2018/04/Wafles-300x300.png',
+    favorito: false),
+    Producto(nombre: 'Huevos al gusto', precio: 90,
+        urlFoto: 'https://reeftown.mx/wp-content/uploads/2018/04/Huevos-al-gusto-300x300.png',
+    favorito: false),
+    Producto(nombre: 'Hot cakes', precio: 80,
+        urlFoto: 'https://reeftown.mx/wp-content/uploads/2018/04/Hot-cakes-300x300.png',
+    favorito: false),
 
-  Widget CallPage(int currentIndex) {
-    switch (currentIndex) {
-      case 0:
-        return Menu();
-      case 1:
-        return Carrito();
-      case 2:
-        return Favoritos();
-      case 3:
-        return Perfil();
-        break;
-      default:
-        return Menu();
-    }
-  }
+  ];
+
+
+
 
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SafeArea(
-        child: Scaffold(
-          appBar: mainBar(context),
+      home:  Scaffold(
           body: ListView(
             children: <Widget>[
+
+              widget.nombre == null ?
+              Center(
+                  child: Text('',
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
+              ),)): Center(
+                  child: Text('Bienvenido de nuevo '+widget.nombre,
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                    ),)) ,
               slider(),
               Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -57,12 +71,6 @@ class _MenuState extends State<Menu> {
                     style: TextStyle(
                         fontSize: 25, fontWeight: FontWeight.bold)),
               ),
-              MaterialButton(onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Perfil()),
-                );
-              }),
               categorias(context),
               Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -73,46 +81,11 @@ class _MenuState extends State<Menu> {
               SizedBox(
                 height: 10,
               ),
-              Lista(),
-              Lista(),
-              Lista(),
-              Lista(),
-              Lista(),
-              Lista(),
-              Lista(),
+             Column(
+                 children: productos.map((producto) => Lista(producto: producto)).toList(),),
+
             ],
           ),
-          bottomNavigationBar: BottomNavigationBar(
-              elevation: 0.8,
-              onTap: (value) {
-                _currentIndex = value;
-                setState(() {});
-              },
-              currentIndex: _currentIndex,
-              items: [
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.home),
-                  title: Text('Inicio'),
-                  backgroundColor: Colors.red,
-                ),
-                BottomNavigationBarItem(
-                  backgroundColor: Colors.red,
-                  icon: Icon(Icons.favorite),
-                  title: Text('Favoritos'),
-                ),
-                BottomNavigationBarItem(
-                  backgroundColor: Colors.red,
-                  icon: Icon(Icons.add_shopping_cart),
-                  title: Text('Carrito'),
-                ),
-                BottomNavigationBarItem(
-                  backgroundColor: Colors.red,
-                  icon: Icon(Icons.account_circle),
-                  title: Text('Perfil'),
-                ),
-              ]
-          ),
-        ),
       ),
     );
   }

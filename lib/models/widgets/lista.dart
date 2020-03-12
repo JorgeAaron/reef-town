@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:reef_town/UI/Pages/articulo_individual.dart';
+import 'package:reef_town/UI/Pages/favoritos.dart';
+import 'package:reef_town/models/classes/favoritos_clase.dart';
+import 'package:reef_town/models/classes/producto.dart';
 
 class Lista extends StatefulWidget {
+  final Producto producto;
+
+  Lista({this.producto});
+
   @override
   _ListaState createState() => _ListaState();
 }
 
 class _ListaState extends State<Lista> {
+
+
   bool _esFavorito = true;
 
   @override
@@ -14,22 +24,32 @@ class _ListaState extends State<Lista> {
 
     void _toggleFavorite() {
       setState(() {
-        if (_esFavorito) {
-          _esFavorito = false;
+        if (widget.producto.favorito) {
+          widget.producto.favorito= false;
         } else {
-          _esFavorito = true;
+          widget.producto.favorito = true;
+          ListaFavoritos lista = new ListaFavoritos(nombreFavorito: widget.producto.nombre,precioFavorito: widget.producto.precio
+              ,urlFavorito: widget.producto.urlFoto);
+
+          lista.favoritos.add(lista);
         }
       });
     }
 
     return Card(
       child: ListTile(
-        leading: Image.network("https://reeftown.mx/wp-content/uploads/2018/11/Camaro%CC%81n-al-ajillo.png"),
-        title: Text("Camaron al ajillo"),
-        subtitle: Text("\$200"),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Individual(articulo: widget.producto,)),
+          );
+        },
+        leading: Image.network(widget.producto.urlFoto),
+        title: Text(widget.producto.nombre),
+        subtitle: Text("\$"+widget.producto.precio.toString()),
        trailing:
        IconButton(
-      icon: (_esFavorito ? Icon(Icons.favorite) : Icon(Icons.favorite_border)),
+      icon: (widget.producto.favorito ? Icon(Icons.favorite) : Icon(Icons.favorite_border)),
       color: Colors.red[500],
       onPressed: _toggleFavorite,
       ),),

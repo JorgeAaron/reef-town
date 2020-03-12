@@ -2,9 +2,24 @@ import 'package:flutter/material.dart';
 
 
 class ListaFavoritos {
-   List favorites = [];
+
+   String nombreFavorito;
+
+   int precioFavorito;
+
+   String urlFavorito;
+
+   bool favorito;
+
+   ListaFavoritos({this.nombreFavorito,this.precioFavorito, this.urlFavorito, this.favorito}) ;
+
+
+   List<ListaFavoritos> favoritos = [];
+
+
 
 
 
 
 }
+

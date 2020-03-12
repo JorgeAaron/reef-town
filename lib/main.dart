@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:reef_town/UI/Login/login.dart';
+import 'package:reef_town/UI/Pages/home.dart';
 import 'package:reef_town/UI/menu.dart';
 import 'package:flutter/services.dart';
 
@@ -27,7 +28,7 @@ class HomePage extends StatelessWidget {
 
       ),
 
-      home: Menu(),
+      home: Home(),
     );
 
   }
