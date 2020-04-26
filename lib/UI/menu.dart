@@ -1,10 +1,13 @@
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:reef_town/models/classes/producto.dart';
-import 'package:reef_town/models/widgets/carousel.dart';
-import 'package:reef_town/models/widgets/categorias.dart';
-import 'package:reef_town/models/widgets/lista.dart';
+import 'package:reef_town/widgets/carousel.dart';
+import 'package:reef_town/widgets/categorias.dart';
+import 'package:reef_town/widgets/lista.dart';
+import 'package:reef_town/widgets/productos_lista.dart';
 
 
 import 'Pages/favoritos.dart';
@@ -39,7 +42,7 @@ class _MenuState extends State<Menu> {
     favorito: false),
 
   ];
-
+  
 
 
 
@@ -48,45 +51,37 @@ class _MenuState extends State<Menu> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:  Scaffold(
-          body: ListView(
-            children: <Widget>[
+  //      home:  StreamProvider<List<Producto>>.value(
+    //    value: Database().productos,
 
-              widget.nombre == null ?
-              Center(
-                  child: Text('',
-              style: TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.bold,
-              ),)): Center(
-                  child: Text('Bienvenido de nuevo '+widget.nombre,
-                    style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                    ),)) ,
-              slider(),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text('Categorías',
-                    style: TextStyle(
-                        fontSize: 25, fontWeight: FontWeight.bold)),
+      home:Scaffold(
+              body: ListView(
+                children: <Widget>[
+                  slider(),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text('Categorías',
+                        style: TextStyle(
+                            fontSize: 25, fontWeight: FontWeight.bold)),
+                  ),
+                  categorias(context),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text('Más vendidos',
+                        style: TextStyle(
+                            fontSize: 25, fontWeight: FontWeight.bold)),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                 /*
+                 Column(
+                     children: productos.map((producto) => Lista(producto: producto)).toList(),),
+                  */
+                  ListaProductos()
+                ],
               ),
-              categorias(context),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text('Más vendidos',
-                    style: TextStyle(
-                        fontSize: 25, fontWeight: FontWeight.bold)),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-             Column(
-                 children: productos.map((producto) => Lista(producto: producto)).toList(),),
-
-            ],
           ),
-      ),
     );
   }
 

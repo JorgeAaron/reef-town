@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:reef_town/UI/Login/login.dart';
-import 'package:reef_town/UI/Pages/home.dart';
-import 'package:reef_town/UI/menu.dart';
 import 'package:flutter/services.dart';
+import 'package:reef_town/models/authentification/auth.dart';
+import 'package:reef_town/wrapper.dart';
+import 'package:provider/provider.dart';
+
+import 'models/classes/user.dart';
 
 
 
@@ -17,18 +19,25 @@ class HomePage extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      systemNavigationBarColor: Colors.black, // navigation bar color
+      statusBarColor: Colors.red[600], // status bar color
+    ));
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
     ]);
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Reef Town App',
-      theme: ThemeData(
-        fontFamily: 'AbrilFatface',
 
+    return StreamProvider<User>.value(
+      value: AuthService().user,
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Reef Town App',
+        theme: ThemeData(
+          fontFamily: 'AbrilFatface',
+        ),
+
+        home: Wrapper(),
       ),
-
-      home: Home(),
     );
 
   }

@@ -14,8 +14,6 @@ class ListaFavoritos {
    ListaFavoritos({this.nombreFavorito,this.precioFavorito, this.urlFavorito, this.favorito}) ;
 
 
-   List<ListaFavoritos> favoritos = [];
-
 
 
 
