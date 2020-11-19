@@ -156,7 +156,7 @@ class _LoginState extends State<Login> {
                       height: 20,
                     ),
                     isLoggedIn?
-                    Text('funciona') :signInFacebook(),
+                    Text('funciona') :SignInFacebook(),
                     SizedBox(
                       height: 70,
                     ),

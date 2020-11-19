@@ -7,8 +7,9 @@ class Carrito extends StatefulWidget {
   _CarritoState createState() => _CarritoState();
 
   final Carritos producto;
+  final Function eliminar;
 
-  Carrito({this.producto});
+  Carrito({this.producto,this.eliminar});
 }
 
 class _CarritoState extends State<Carrito> {
@@ -30,7 +31,13 @@ class _CarritoState extends State<Carrito> {
         title: Text(widget.producto.nombre),
         subtitle: Text(widget.producto.cantidad.toString()+"x \$"+widget.producto.precio.toString(),
         ),
-        trailing: Text("\$" +subtotal.toString()),
+        trailing: IconButton(
+            icon: Icon(Icons.cancel,),
+            onPressed: () {
+
+               }
+      ),
+      //Text("\$" +subtotal.toString()),
       ),
     );
 

@@ -10,6 +10,8 @@ class Producto {
 
   bool favorito;
 
-  Producto({this.precio, this.nombre, this.urlFoto, this.favorito});
+  String categoria;
+
+  Producto({this.precio, this.nombre, this.urlFoto, this.favorito, this.categoria});
 
 }

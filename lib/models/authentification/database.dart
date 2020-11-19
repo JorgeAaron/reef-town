@@ -41,6 +41,7 @@ class Database {
         urlFoto: doc.data['url'] ?? '',
         precio: doc.data['precio'] ?? 0,
         favorito: doc.data['favorito'] ?? true,
+        categoria: doc.data['categoria'] ?? ''
       );
     }).toList();
   }
@@ -88,6 +89,7 @@ class Database {
       );
     }).toList();
   }
+
 
   Stream<List<Carritos>> get carritos{
     return carritoCollection.snapshots().map(_carritoListFromSnapshot);

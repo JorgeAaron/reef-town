@@ -1,7 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
-import 'package:reef_town/UI/Pages/perfil.dart';
+
+import 'package:reef_town/UI/categories/aperitivos.dart';
+import 'package:reef_town/UI/categories/burros.dart';
+import 'package:reef_town/UI/categories/cocteles.dart';
+import 'package:reef_town/UI/categories/desayunos.dart';
+import 'package:reef_town/UI/categories/fit.dart';
+import 'package:reef_town/UI/categories/hamburguesas.dart';
+import 'package:reef_town/UI/categories/otros.dart';
+import 'package:reef_town/UI/categories/pescado.dart';
+import 'package:reef_town/UI/categories/postres.dart';
+import 'package:reef_town/UI/categories/pulpo.dart';
+import 'package:reef_town/UI/categories/reef_kids.dart';
+import 'package:reef_town/UI/categories/sushi.dart';
+import 'package:reef_town/UI/categories/tacos.dart';
+import 'package:reef_town/UI/categories/tostadas.dart';
 
 Widget categorias(context) {
   return Stack(
@@ -16,17 +29,26 @@ Widget categorias(context) {
                   ),
                   Column(
                     children: <Widget>[
-                      Container(
-                        child: Icon(
-                          FontAwesome5Solid.hamburger,
-
-                        ),
-                        height: 60,
-                        width: 60,
-                        decoration: BoxDecoration(
-                          color: Colors.lightGreen,
-                          shape: BoxShape.circle,
-
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => ListaDesayunos()),
+                          );
+                        },
+                        child: Container(
+                          height: 60,
+                          width: 60,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage(
+                                'lib/assets/desayunos.png'
+                              ),
+                              fit: BoxFit.scaleDown,
+                            ),
+                            color: Colors.lightGreen,
+                            shape: BoxShape.circle,
+                          ),
                         ),
                       ),
                       Text('Desayunos'),
@@ -37,18 +59,26 @@ Widget categorias(context) {
                   ),
                   Column(
                     children: <Widget>[
-                      Container(
-                        height: 60,
-                        width: 60,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(
-                              'lib/assets/icons8-prawn-50.png'
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => ListaAperitivos()),
+                          );
+                        },
+                        child: Container(
+                          height: 60,
+                          width: 60,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage(
+                                'lib/assets/pollo.png'
+                              ),
+                              fit: BoxFit.scaleDown,
                             ),
-                            fit: BoxFit.scaleDown,
+                            color: Colors.lightGreen,
+                            shape: BoxShape.circle,
                           ),
-                          color: Colors.lightGreen,
-                          shape: BoxShape.circle,
                         ),
                       ),
                       Text('Aperitivos'),
@@ -59,41 +89,58 @@ Widget categorias(context) {
                   ),
                   Column(
                     children: <Widget>[
-                      Container(
-                          //Image.asset('assets/icons8-prawn-50.png'),
-                        height: 60,
-                        width: 60,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(
-                                'lib/assets/icons8-prawn-50.png'
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => ListaCocteles()),
+                          );
+                        },
+                        child: Container(
+                            //Image.asset('assets/icons8-prawn-50.png'),
+                          height: 60,
+                          width: 60,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage(
+                                  'lib/assets/coctel.png'
+                              ),
+                              fit: BoxFit.scaleDown,
                             ),
-                            fit: BoxFit.scaleDown,
+                            color: Colors.lightGreen,
+                            shape: BoxShape.circle,
                           ),
-                          color: Colors.lightGreen,
-                          shape: BoxShape.circle,
                         ),
                       ),
                       Text('Cocteles'),
                     ],
+
                   ),
                   SizedBox(
                     width: 20,
                   ),
                   Column(
                     children: <Widget>[
-                      Container(
-                        height: 60,
-                        width: 60,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(
-                                'lib/assets/icons8-prawn-50.png'
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => ListaTostadas()),
+                          );
+                        },
+                        child: Container(
+                          height: 60,
+                          width: 60,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage(
+                                  'lib/assets/caldos.png'
+                              ),
+                              fit: BoxFit.scaleDown,
                             ),
-                            fit: BoxFit.scaleDown,
+                            color: Colors.lightGreen,
+                            shape: BoxShape.circle,
                           ),
-                          color: Colors.lightGreen,
-                          shape: BoxShape.circle,
                         ),
                       ),
                       Text('Tostadas'),
@@ -104,19 +151,26 @@ Widget categorias(context) {
                   ),
                   Column(
                     children: <Widget>[
-                      Container(
-
-                        height: 60,
-                        width: 60,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(
-                                'assets/icons8-taco-50-2.png'
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => ListaTacos()),
+                          );
+                        },
+                        child: Container(
+                          height: 60,
+                          width: 60,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage(
+                                  'assets/tacos.png'
+                              ),
+                              fit: BoxFit.scaleDown,
                             ),
-                            fit: BoxFit.scaleDown,
+                            color: Colors.lightGreen,
+                            shape: BoxShape.circle,
                           ),
-                          color: Colors.lightGreen,
-                          shape: BoxShape.circle,
                         ),
                       ),
                       Text('Tacos'),
@@ -127,18 +181,26 @@ Widget categorias(context) {
                   ),
                   Column(
                     children: <Widget>[
-                      Container(
-                        height: 60,
-                        width: 60,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(
-                                'lib/assets/icons8-prawn-50.png'
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => ListaBurros()),
+                          );
+                        },
+                        child: Container(
+                          height: 60,
+                          width: 60,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage(
+                                  'lib/assets/burros.png'
+                              ),
+                              fit: BoxFit.scaleDown,
                             ),
-                            fit: BoxFit.scaleDown,
+                            color: Colors.lightGreen,
+                            shape: BoxShape.circle,
                           ),
-                          color: Colors.lightGreen,
-                          shape: BoxShape.circle,
                         ),
                       ),
                       Text('Burros'),
@@ -149,18 +211,26 @@ Widget categorias(context) {
                   ),
                   Column(
                     children: <Widget>[
-                      Container(
-                        height: 60,
-                        width: 60,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(
-                                'assets/icons8-dressed-fish-50.png'
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => ListaPescado()),
+                          );
+                        },
+                        child: Container(
+                          height: 60,
+                          width: 60,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage(
+                                  'assets/pescado.png'
+                              ),
+                              fit: BoxFit.scaleDown,
                             ),
-                            fit: BoxFit.scaleDown,
+                            color: Colors.lightGreen,
+                            shape: BoxShape.circle,
                           ),
-                          color: Colors.lightGreen,
-                          shape: BoxShape.circle,
                         ),
                       ),
                       Text('Pescado'),
@@ -171,13 +241,24 @@ Widget categorias(context) {
                   ),
                   Column(
                     children: <Widget>[
-                      Container(
-                        height: 60,
-                        width: 60,
-                        decoration: BoxDecoration(
-
-                          color: Colors.lightGreen,
-                          shape: BoxShape.circle,
+                      InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => ListaPulpo()),
+                            );
+                          },
+                        child: Container(
+                          height: 60,
+                          width: 60,
+                          decoration: BoxDecoration(
+                          
+                            color: Colors.lightGreen,
+                            shape: BoxShape.circle,
+                            image: DecorationImage(image: AssetImage(
+                              'lib/assets/pulpo.png'
+                            ))
+                          ),
                         ),
                       ),
                       Text('Pulpo'),
@@ -188,18 +269,26 @@ Widget categorias(context) {
                   ),
                   Column(
                     children: <Widget>[
-                      Container(
-                        height: 60,
-                        width: 60,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(
-                                'assets/icons8-dressed-fish-50.png'
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => ListaOtros()),
+                          );
+                        },
+                        child: Container(
+                          height: 60,
+                          width: 60,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage(
+                                  'assets/otros.png'
+                              ),
+                              fit: BoxFit.scaleDown,
                             ),
-                            fit: BoxFit.scaleDown,
+                            color: Colors.lightGreen,
+                            shape: BoxShape.circle,
                           ),
-                          color: Colors.lightGreen,
-                          shape: BoxShape.circle,
                         ),
                       ),
                       Text('Otros'),
@@ -210,18 +299,26 @@ Widget categorias(context) {
                   ),
                   Column(
                     children: <Widget>[
-                      Container(
-                        height: 60,
-                        width: 60,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(
-                                'lib/assets/icons8-hamburguer-50.png'
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => ListaHam()),
+                          );
+                        },
+                        child: Container(
+                          height: 60,
+                          width: 60,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage(
+                                  'lib/assets/hamburguesas.png'
+                              ),
+                              fit: BoxFit.scaleDown,
                             ),
-                            fit: BoxFit.scaleDown,
+                            color: Colors.lightGreen,
+                            shape: BoxShape.circle,
                           ),
-                          color: Colors.lightGreen,
-                          shape: BoxShape.circle,
                         ),
                       ),
                       Text('Hamburguesas'),
@@ -232,18 +329,26 @@ Widget categorias(context) {
                   ),
                   Column(
                     children: <Widget>[
-                      Container(
-                        height: 60,
-                        width: 60,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(
-                                'lib/assets/icons8-dressed-fish-50.png'
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => ListaKids()),
+                          );
+                        },
+                        child: Container(
+                          height: 60,
+                          width: 60,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage(
+                                  'lib/assets/kids.png'
+                              ),
+                              fit: BoxFit.scaleDown,
                             ),
-                            fit: BoxFit.scaleDown,
+                            color: Colors.lightGreen,
+                            shape: BoxShape.circle,
                           ),
-                          color: Colors.lightGreen,
-                          shape: BoxShape.circle,
                         ),
                       ),
                       Text('Reef Kids'),
@@ -254,40 +359,56 @@ Widget categorias(context) {
                   ),
                   Column(
                     children: <Widget>[
-                      Container(
-                        height: 60,
-                        width: 60,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(
-                                'lib/assets/icons8-salad-50.png'
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => ListaFit()),
+                          );
+                        },
+                        child: Container(
+                          height: 60,
+                          width: 60,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage(
+                                  'lib/assets/fit.png'
+                              ),
+                              fit: BoxFit.scaleDown,
                             ),
-                            fit: BoxFit.scaleDown,
+                            color: Colors.lightGreen,
+                            shape: BoxShape.circle,
                           ),
-                          color: Colors.lightGreen,
-                          shape: BoxShape.circle,
                         ),
                       ),
                       Text('Fit'),
-]
+       ]
     ),
                       SizedBox(
                         width: 20,
                       ),
                       Column(
                         children: <Widget>[
-                          Container(
-                            height: 60,
-                            width: 60,
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: AssetImage(
-                                    'assets/icons8-dressed-fish-50.png'
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => ListaSushi()),
+                              );
+                            },
+                            child: Container(
+                              height: 60,
+                              width: 60,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage(
+                                      'assets/sushis.png'
+                                  ),
+                                  fit: BoxFit.scaleDown,
                                 ),
-                                fit: BoxFit.scaleDown,
+                                color: Colors.lightGreen,
+                                shape: BoxShape.circle,
                               ),
-                              color: Colors.lightGreen,
-                              shape: BoxShape.circle,
                             ),
                           ),
                           Text('Sushi'),
@@ -298,18 +419,26 @@ Widget categorias(context) {
                   ),
                   Column(
                     children: <Widget>[
-                      Container(
-                        height: 60,
-                        width: 60,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(
-                                'assets/icons8-dressed-fish-50.png'
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => ListaPostres()),
+                          );
+                        },
+                        child: Container(
+                          height: 60,
+                          width: 60,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage(
+                                  'assets/hotcakes.png'
+                              ),
+                              fit: BoxFit.scaleDown,
                             ),
-                            fit: BoxFit.scaleDown,
+                            color: Colors.lightGreen,
+                            shape: BoxShape.circle,
                           ),
-                          color: Colors.lightGreen,
-                          shape: BoxShape.circle,
                         ),
                       ),
                       Text('Postres'),
@@ -337,3 +466,4 @@ Widget categorias(context) {
 ]
   );
 }
+

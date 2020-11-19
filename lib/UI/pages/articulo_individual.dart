@@ -97,6 +97,15 @@ class _IndividualState extends State<Individual> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
+              new FloatingActionButton(
+                onPressed: minus,
+                heroTag: 'btnMinus',
+                child: new Icon(
+                    const IconData(0xe15b, fontFamily: 'MaterialIcons'),
+                    color: Colors.black),
+                backgroundColor: Colors.white,
+              ),
+              Text('$_n', style: new TextStyle(fontSize: 60.0)),
               FloatingActionButton(
                 onPressed: add,
                 heroTag: 'btnAdd',
@@ -106,15 +115,8 @@ class _IndividualState extends State<Individual> {
                 ),
                 backgroundColor: Colors.white,
               ),
-              Text('$_n', style: new TextStyle(fontSize: 60.0)),
-              new FloatingActionButton(
-                onPressed: minus,
-                heroTag: 'btnMinus',
-                child: new Icon(
-                    const IconData(0xe15b, fontFamily: 'MaterialIcons'),
-                    color: Colors.black),
-                backgroundColor: Colors.white,
-              ),
+
+
 
             ],
           ),

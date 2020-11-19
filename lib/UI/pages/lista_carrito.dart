@@ -40,6 +40,7 @@ class _ListaCarritoState extends State<ListaCarrito> {
                 itemBuilder: (context, index) {
                   return Carrito(
                     producto: carrito[index],
+                    eliminar:
                   );
                 }),
           ],

@@ -8,8 +8,9 @@ class ProductoTile extends StatefulWidget {
 
 
   final Producto producto;
+  final String categoria;
 
-  ProductoTile({this.producto});
+  ProductoTile({this.producto, this.categoria});
 
   @override
   _ProductoTileState createState() => _ProductoTileState();
@@ -21,12 +22,10 @@ class _ProductoTileState extends State<ProductoTile> {
 
   @override
   Widget build(BuildContext context) {
-
-
     void _toggleFavorite() {
       setState(() {
         if (widget.producto.favorito) {
-          widget.producto.favorito= false;
+          widget.producto.favorito = false;
         } else {
           widget.producto.favorito = true;
 
@@ -38,32 +37,34 @@ class _ProductoTileState extends State<ProductoTile> {
 
             await reference.add({'nombre': widget.producto.nombre,
               'precio': widget.producto.precio,
-              'url':widget.producto.urlFoto});
+              'url': widget.producto.urlFoto});
           });
         }
       });
     }
 
-
-    return Card(
-
-      child: ListTile(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => Individual(articulo: widget.producto,)),
-          );
-        },
-        leading: Image.network(widget.producto.urlFoto),
-        title: Text(widget.producto.nombre),
-        subtitle: Text("\$"+widget.producto.precio.toString()),
-        trailing:
-        IconButton(
-          icon: (widget.producto.favorito ? Icon(Icons.favorite) : Icon(Icons.favorite_border)),
-          color: Colors.red[500],
-          onPressed: _toggleFavorite,
-        ),),
-    );
+    while(widget.categoria == widget.producto.categoria) {
+      return Card(
+        child: ListTile(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => Individual(articulo: widget.producto,)),
+            );
+          },
+          leading: Image.network(widget.producto.urlFoto),
+          title: Text(widget.producto.nombre),
+          subtitle: Text("\$" + widget.producto.precio.toString()),
+          trailing:
+          IconButton(
+            icon: (widget.producto.favorito ? Icon(Icons.favorite) : Icon(
+                Icons.favorite_border)),
+            color: Colors.red[500],
+            onPressed: _toggleFavorite,
+          ),),
+      );
+    }
   }
 }
 
